@@ -15,10 +15,11 @@
 # diff for any other baseline drift the role re-asserts.
 #
 # Prerequisites, or the sync PRs go red:
-#   - a simp-rake-helpers release that allows voxpupuli-test 15 and pins
-#     json < 3. Until then the Ruby Style job can't even bundle (the
-#     modules' rubocop-performance ~> 1.27 needs rubocop >= 1.89, while
-#     voxpupuli-test 14 pins 1.85.1), which continue-on-error has hidden;
+#   - simp-rake-helpers 6.3.0 (released 2026-10-05), which allows
+#     voxpupuli-test 15 (rubocop 1.91) and pins json < 3. Before it, CI
+#     resolved rubocop 1.85, which doesn't report the spec_helper
+#     Style/DirectiveScope offense this session fixes, and Renovate's
+#     pending rubocop-performance ~> 1.27 bumps couldn't bundle at all;
 #   - nothing else: the 23 modules with other rubocop 1.91 offenses fix
 #     them and drop continue-on-error in their own PRs, and this
 #     session's repolist excludes them. Its 49 pupmods' only rubocop 1.91
